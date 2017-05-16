@@ -15,5 +15,5 @@ app.use('/users', users);
 
 
 //require('./utils/ParseTour1');
-require('./utils/ParseTour2');
+//require('./utils/ParseTour2');
 module.exports = app;
