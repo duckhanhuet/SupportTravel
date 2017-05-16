@@ -21,6 +21,9 @@ var TourSchema = mongoose.Schema({
     },
     price:{
         type: Number
+    },
+    transport:{
+        type: String
     }
 })
 
