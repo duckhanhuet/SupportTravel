@@ -6,7 +6,7 @@ var config  = require('../config/config')
 var async   = require('async');
 var Entities = require('html-entities').AllHtmlEntities;
 entities = new Entities();
-
+let sum=0;
 let page=5;
 
 for (let i=1;i<=page;i++){
@@ -25,7 +25,6 @@ for (let i=1;i<=page;i++){
                 let titleB = $(this).find('.title_tour a');
                 let timeB  = $(this).find('.km_address');
                 let priceB = $(this).find('.price_tour');
-
                 let pr1= new Promise((resolve,reject)=>{
                     try {
                         let image=imageB[0].attribs['src'];
@@ -33,7 +32,6 @@ for (let i=1;i<=page;i++){
                         let title= $(titleB).text();
                         let time = trimSpace($(timeB).text());
                         let price= trimSpace($(priceB).text())
-
                         let object= {
                             image: image,
                             link: link,
@@ -59,10 +57,11 @@ for (let i=1;i<=page;i++){
                             let vehicle=$(vehicleB).text();
                             let start  =$(startB).text();
                             let schedule=$(scheduleB).text()
-
+                            sum=sum+1;
                             res.vehicle= vehicle;
                             res.start=start;
                             res.schedule=entities.decode(schedule).toLowerCase().trim();
+                            res.sum=sum;
                             console.log(res)
                         }
                     })
